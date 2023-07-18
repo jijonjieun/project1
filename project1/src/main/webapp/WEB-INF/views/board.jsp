@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="./resources/css/board.css">
 </head>
 <body>
+<%@ include file="menu.jsp" %>
 	<h1>보드</h1>
 	<img alt ="" src="./img/edit2.png" height="100px">
 	<a href="./">index로 가기</a>
@@ -35,5 +36,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<button onclick="location.href='./write'">글쓰기</button>
 </body>
 </html>

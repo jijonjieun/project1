@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class BoardController {
@@ -37,6 +38,28 @@ public class BoardController {
 		BoardDTO dto = boardService.detail(bno);
 		model.addAttribute("dto", dto);
 		return "detail";
+	}
+	
+	@GetMapping("/write")
+	public String write() {
+		return "write";
+	}
+	
+	
+	@PostMapping("/write")
+	public String write(HttpServletRequest request) {
+		//사용자가 입력한 데이터 변수에 담기
+		
+	BoardDTO dto = new BoardDTO();
+	dto.setBtitle(request.getParameter("title"));
+	dto.setBcontent(request.getParameter("content"));
+	dto.setBwrite(request.getParameter("홍길동2")); //로그인추가되면 변경
+	
+	//서비스 디에이오 마이바티스 디비보내서 저장하기.
+	boardService.write(dto); //실행만하고 결과안받음.
+		
+		return "redirect:board";
+		
 	}
 	
 	

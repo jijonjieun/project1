@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="menu.jsp" %>
 	<h1>index</h1>
 	<a href ="./board">보드로가기</a>
 </body>
